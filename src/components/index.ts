@@ -25,3 +25,5 @@ export { default as Pictures } from './Pictures'
 export { default as Shartseg } from './tsng/shartseg'
 export { default as IGMLAB } from './tsng/igmlab/igmbuten'
 export { default as IgmSecondPart } from './igmSecondPart'
+export {default as Incubator} from "./incubator"
+export {default as Wpic} from "./widthFullPicture"

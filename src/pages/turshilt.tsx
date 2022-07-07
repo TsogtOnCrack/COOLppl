@@ -1,4 +1,4 @@
-import { IgmSecondPart, Shartseg } from 'components'
+import { IgmSecondPart, Shartseg, Incubator } from 'components'
 import { IGMLAB } from 'components'
 const Turshilt = () => {
   return (
@@ -6,6 +6,7 @@ const Turshilt = () => {
       <Shartseg size={10} tsatsrag={20} />
       <IgmSecondPart />
       <IGMLAB />
+      <Incubator/>
     </div>
   )
 }
