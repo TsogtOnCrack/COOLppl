@@ -13,6 +13,7 @@ export type TypographyTypes =
   | 'body-mobile'
   | 'title-normal'
   | 'mobile-menu'
+  | 'yeloo'
 
 type Props = {
   variant: TypographyTypes
@@ -47,6 +48,8 @@ const Typography: FC<Props> = ({ variant , className = '', children }) => {
         return 'text-p1 font-bold'
       case 'mobile-menu':
         return 'text-p2 font-normal'
+      case 'yeloo' : 
+        return 'text-body font-bold text-[14px]'
     }
   }
 

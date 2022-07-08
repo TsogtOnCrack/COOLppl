@@ -5,6 +5,11 @@ import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import Button from "components/Button";
 import { PADDINGX } from "constants/layout";
+import {Wpic} from "components"
+
+const data = {
+    dir: 'assets/incubatorPicture.jpg',
+  }
 
 const IGMLAB = () => {
     const theme = useTheme()
@@ -57,6 +62,7 @@ const IGMLAB = () => {
                 </div>
 
             </div>
+            <Wpic dir={data.dir} />
         </div>
     )
 }
