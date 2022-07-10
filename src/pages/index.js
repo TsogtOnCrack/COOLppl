@@ -27,4 +27,3 @@ export default function Home() {
     </MainLayout>
   )
 }
-1
