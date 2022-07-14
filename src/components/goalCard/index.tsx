@@ -12,7 +12,7 @@ const GoalCard = (props: Props) => {
   const { index, desc, className, bclass } = props
 
   return (
-    <div className={`flex gap-8  ${className}`}>
+    <div className={`sm:max-w-[370px] flex gap-8  ${className}`}>
       <Typography variant="title-big" className="text-[#646464] mt-2 opacity-70">
         {index}
       </Typography>

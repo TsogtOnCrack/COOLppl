@@ -12,7 +12,7 @@ type Props = {
 
 const BigTitle = (props: Props) => {
   const theme = useTheme()
-  const matches = useMediaQuery(theme.breakpoints.down('md'))
+  const matches = useMediaQuery(theme.breakpoints.down('sm'))
   const { titleTop, titleBtm, category1, category2, category3 } = props
 
   return (
