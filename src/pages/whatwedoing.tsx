@@ -11,7 +11,7 @@ const WhatWeDoing = () => {
   const matches = useMediaQuery(theme.breakpoints.down('md'))
   return (
     <MainLayout classname={`bg-backgroundColor-darkGray flex flex-col`}>
-      <div className={`${PADDINGX}`} id="FirstPart">
+      <div className={` max-w-shambWidth ${PADDINGX}`} id="FirstPart">
         <OurPlanetFirst />
         <OurPlanetSecond />
         <div id="spacer" className={matches ? 'h-20' : 'h-72'}></div>

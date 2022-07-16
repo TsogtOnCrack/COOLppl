@@ -15,41 +15,38 @@ const variants = {
 const itemIds = [
   {
     name: 'Home',
-    isSelected: false,
     path: '/',
     id: '',
   },
   {
     name: 'Who we are',
-    isSelected: false,
     path: '/whoarewe',
     id: 'whoarewe',
   },
   {
     name: 'What we do',
-    isSelected: false,
     path: '/whatarewedoing',
     id: 'whatarewedoing',
   },
   {
     name: 'Recommended projects',
-    isSelected: false,
     path: '/recomended',
     id: 'recomended',
   },
   {
     name: 'Naadam',
-    isSelected: false,
     path: '/naadam',
     id: 'naadam',
   },
 ]
 
-export const Navigation = () => (
-
-  <motion.ul className="m-0 flex flex-col py-5 absolute w-full" variants={variants}>
-    {itemIds.map(({ name, isSelected, path }, index) => (
-      <MenuItem name={name} isSelected={isSelected} key={index} path={path} />
-    ))}
-  </motion.ul>
-)
+export const Navigation = () => {
+  const router = useRouter()
+  return (
+    <motion.ul className="m-0 flex flex-col py-5 absolute w-full" variants={variants}>
+      {itemIds.map(({ name, path }, index) => (
+        <MenuItem name={name} isSelected={router.pathname == path} key={index} path={path} />
+      ))}
+    </motion.ul>
+  )
+}

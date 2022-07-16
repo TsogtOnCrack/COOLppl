@@ -8,7 +8,7 @@ const OurPlanetSecond = () => {
   const matches = useMediaQuery(theme.breakpoints.down('sm'))
   const mid = useMediaQuery(theme.breakpoints.down('md'))
   return (
-    <div className="relative w-screen">
+    <div className="relative">
       <div className={matches ? 'hidden' : 'absolute top-[20%] -left-[3%] z-10'}>
         <svg width="634" height="634" viewBox="0 0 634 634" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="180" cy="317" r="317" fill="url(#paint0_linear_1355_18021)" />
@@ -199,7 +199,7 @@ const OurPlanetSecond = () => {
 
       <div className="flex flex-col items-center">
         <div className={matches ? 'w-full flex flex-col items-center' : 'w-[60%] flex flex-col'}>
-          <Emphasis left={matches ? false : true} content={'What we’re doing?'} className={'text-primary-white z-40'} />
+          <Emphasis ts={matches ? " flex justify-center py-2 " : " flex justify-start "} content={'What we’re doing?'} className={'text-primary-white z-40'} />
           <div id="spacer" className={matches ? 'h-20' : 'h-10'}></div>
           <div className="grid grid-rows-3 gap-4 sm:gap-16 z-40">
             <GoalCard
