@@ -91,7 +91,7 @@ const OurPlanetSecond = () => {
           </defs>
         </svg>
       </div>
-      <div className={matches ? 'absolute top-0 left-[7%] z-20' : 'hidden'}>
+      <div className={matches ? 'absolute top-0 left-[16.5%] z-20' : 'hidden'}>
         <svg width="276" height="276" viewBox="0 0 276 276" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="138" cy="138" r="138" fill="url(#paint0_linear_1355_18143)" />
           <defs>
@@ -109,7 +109,7 @@ const OurPlanetSecond = () => {
           </defs>
         </svg>
       </div>
-      <div className={matches ? 'absolute top-[10px] left-[18%] z-20' : 'hidden'}>
+      <div className={matches ? 'absolute top-[10px] left-[27%] z-20' : 'hidden'}>
         <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d_1355_18197)">
             <circle cx="25" cy="25" r="5" fill="#FFD217" />
@@ -141,7 +141,7 @@ const OurPlanetSecond = () => {
           </defs>
         </svg>
       </div>
-      <div className={matches ? 'absolute top-[130px] left-[62%] z-20' : 'hidden'}>
+      <div className={matches ? 'absolute top-[130px] left-[70%] z-20' : 'hidden'}>
         <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d_1355_18199)">
             <circle cx="23" cy="23" r="3" fill="#FFD217" />

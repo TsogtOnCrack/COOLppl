@@ -10,7 +10,7 @@ const data = {
 
 const Turshilt = () => {
   return (
-    <MainLayout classname=" h-fit flex flex-col items-center bg-[#202121]">
+    <MainLayout classname="h-fit flex flex-col items-center bg-[#202121]">
       <Shartseg size={10} tsatsrag={20} />
       <IgmSecondPart />
       <IGMLAB />
