@@ -10,8 +10,8 @@ const WhatWeDoing = () => {
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('md'))
   return (
-    <MainLayout classname={`bg-backgroundColor-darkGray flex flex-col items-center`}>
-      <div className={`${PADDINGX}`} id="FirstPart">
+    <MainLayout classname={`bg-backgroundColor-darkGray flex flex-col`}>
+      <div className={` max-w-shambWidth ${PADDINGX}`} id="FirstPart">
         <OurPlanetFirst />
         <OurPlanetSecond />
       </div>

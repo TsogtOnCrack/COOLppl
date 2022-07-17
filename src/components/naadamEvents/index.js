@@ -172,7 +172,7 @@ export const NaadamEvents = () => {
         <Emphasis left={true}>Naadam events</Emphasis>
       </motion.div>
       <div className="h-[55px]"></div>
-      <div className=" w-full flex flex-col justify-between md:flex-row">
+      <div className=" w-full flex flex-col min-h-[290px] justify-between md:flex-row">
         {list.map((el, index) => {
           return (
             <motion.div variants={item} key={`kay${index}`}>

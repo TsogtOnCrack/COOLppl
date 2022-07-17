@@ -71,7 +71,7 @@ const Incubator = () => {
       <div className=" h-36"></div>
       <Text2 bigText={data.bigText4} paragraph={data.paragraph4} goals={data.goals} />
       <div className=" h-28 md:h-52"></div>
-      <Last vari={matches ? 'title-small' : 'h3'} className={` px-0 md:${PADDINGX} !font-thin text-white/60 z-20 `}>
+      <Last vari={matches ? 'title-small' : 'thin'} className={` px-0 md:${PADDINGX} !font-thin text-white/60 z-20 `}>
         {data.BIGTEXT}
       </Last>
       <div className=" h-36"></div>

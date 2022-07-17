@@ -5,6 +5,20 @@ import { PADDINGX } from 'constants/layout'
 import { NaadamEvents, BigPicture, NaadamPlanText, GoalCard, Emphasis, Pictures } from 'components'
 import { motion } from 'framer-motion'
 
+const data = {
+  goals: [
+    { index: '01', text: "To promote Mongolia's heritage, art and culture internationally through technology" },
+    { index: '02', text: "Rehabilitation through desertification in Mongolia's arts" },
+    { index: '03', text: "Long-term protection of Mongolia's terrestrial ecosystem" },
+    {
+      index: '04',
+      text: 'To introduce the development of Mongolian art and technology to the world and to exchange international experience',
+    },
+    { index: '05', text: 'Disseminate Mongolian heritage' },
+    { index: '06', text: 'Introduce the value of art and technology to society' },
+  ],
+}
+
 const goal = {
   hidden: {
     opacity: 0,
@@ -190,20 +204,9 @@ const Naadam = () => {
           className={`max-w-shambWidth mx-auto flex justify-center ${PADDINGX}`}
         >
           <div className="md:flex md:justify-around md:flex-wrap z-40 w-[90%] md:w-full">
-            <GoalCard
-              className="m-2"
-              index={'01'}
-              desc="To promote Mongolia's heritage, art and culture internationally through technology"
-            />
-            <GoalCard className="m-2" index={'02'} desc="Rehabilitation through desertification in Mongolia's arts" />
-            <GoalCard className="m-2" index={'03'} desc="Long-term protection of Mongolia's terrestrial ecosystem" />
-            <GoalCard
-              className="m-2"
-              index={'04'}
-              desc="To introduce the development of Mongolian art and technology to the world and to exchange international experience"
-            />
-            <GoalCard className="m-2" index={'05'} desc="Disseminate Mongolian heritage" />
-            <GoalCard className="m-2" index={'06'} desc="Introduce the value of art and technology to society" />
+            {data.goals.map((el) => {
+              return <GoalCard className="  md:min-w-[370px] m-2" index={el.index} desc={el.text} />
+            })}
           </div>
           <div id="spacer" className="h-32"></div>
         </motion.div>
