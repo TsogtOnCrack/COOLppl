@@ -6,6 +6,7 @@ import { PADDINGX } from 'constants/layout'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Drawer, Button, SwipeableDrawer } from '@mui/material'
+import { SustainGoals } from './sustainGoals'
 
 const data = [
   { link: '/whoarewe', name: 'Who are we' },
@@ -70,104 +71,111 @@ export const Bighead = () => {
       style={{
         backgroundColor: 'rgba(32, 33, 33, 0.5)',
       }}
-      className={`fixed z-50 flex justify-between backdrop-blur-[10px]  items-center w-full h-[70px] px-10`}
+      className={`fixed z-50 flex flex-col backdrop-blur-[10px] items-start h-fit w-full px-10`}
     >
-      <div className="h-10 w-[181px]">
-        <Link href={'/'}>
-          <a>
-            <img className="max-w-full" src="assets/homelogo.webp" />
-          </a>
-        </Link>
-      </div>
-      <div className="headerBpoint:hidden">
-        <React.Fragment key={'right'}>
-          <div onClick={toggleDrawer('right', true)}>
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="40" height="8" rx="4" fill="white" />
-              <rect width="40" height="8" rx="4" fill="white" />
-              <rect width="40" height="8" rx="4" fill="white" />
-              <rect y="16" width="40" height="8" rx="4" fill="white" />
-              <rect y="16" width="40" height="8" rx="4" fill="white" />
-              <rect y="16" width="40" height="8" rx="4" fill="white" />
-              <rect y="32" width="40" height="8" rx="4" fill="white" />
-              <rect y="32" width="40" height="8" rx="4" fill="white" />
-              <rect y="32" width="40" height="8" rx="4" fill="white" />
-            </svg>
+      <div className="flex flex-row items-center w-full justify-between h-[70px] z-50">
+        <div className="h-10 w-[181px]">
+          <Link href={'/'}>
+            <a>
+              <img className="max-w-full" src="assets/homelogo.webp" />
+            </a>
+          </Link>
+        </div>
+        <div className="headerBpoint:hidden">
+          <React.Fragment key={'right'}>
+            <div onClick={toggleDrawer('right', true)}>
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="8" rx="4" fill="white" />
+                <rect width="40" height="8" rx="4" fill="white" />
+                <rect width="40" height="8" rx="4" fill="white" />
+                <rect y="16" width="40" height="8" rx="4" fill="white" />
+                <rect y="16" width="40" height="8" rx="4" fill="white" />
+                <rect y="16" width="40" height="8" rx="4" fill="white" />
+                <rect y="32" width="40" height="8" rx="4" fill="white" />
+                <rect y="32" width="40" height="8" rx="4" fill="white" />
+                <rect y="32" width="40" height="8" rx="4" fill="white" />
+              </svg>
+            </div>
+
+            <Drawer anchor={'right'} open={state['right']} onClose={toggleDrawer('right', false)}>
+              {list('right')}
+            </Drawer>
+          </React.Fragment>
+        </div>
+        <div className="items-center justify-between h-full headerBpoint:flex hidden gap-14">
+          <div className="h-full shrink-0 flex items-center">
+            {data.map((el) => {
+              const sele = router.pathname == el.link
+              return (
+                <Link href={el.link}>
+                  <div
+                    key={'deez' + el.name}
+                    id={el.name}
+                    className={`${
+                      router.pathname == el.link
+                        ? 'border-primary-yellow bg-textColor-secondary-darkGray'
+                        : ' border-transparent'
+                    } group flex items-center h-full px-[35px] border-b-2 hover:cursor-pointer text-white`}
+                  >
+                    <a>
+                      <Typography
+                        variant="mobile-menu"
+                        className={`${router.pathname == el.link ? '' : 'text-white/70 '}group-hover:text-white `}
+                      >
+                        {el.name}
+                      </Typography>
+                    </a>
+                  </div>
+                </Link>
+              )
+            })}
           </div>
+          <div id="icons" className="flex gap-[30px]">
+            <Link href={'https://www.facebook.com/shambala.mn/'}>
+              <a className="hover:scale-125" target="_blank">
+                {handleIcon({
+                  icon: 'facebook',
+                  size: 16,
+                  className: 'text-menuIcon-gray hover:text-primary-yellow',
+                })}
+              </a>
+            </Link>
 
-          <Drawer anchor={'right'} open={state['right']} onClose={toggleDrawer('right', false)}>
-            {list('right')}
-          </Drawer>
-        </React.Fragment>
-      </div>
-      <div className="items-center justify-between h-full headerBpoint:flex hidden gap-14">
-        <div className="h-full shrink-0 flex items-center">
-          {data.map((el) => {
-            const sele = router.pathname == el.link
-            return (
-              <Link href={el.link}>
-                <div
-                  key={'deez' + el.name}
-                  id={el.name}
-                  className={`${
-                    router.pathname == el.link
-                      ? 'border-primary-yellow bg-textColor-secondary-darkGray'
-                      : ' border-transparent'
-                  } group flex items-center h-full px-[35px] border-b-2 hover:cursor-pointer text-white`}
-                >
-                  <a>
-                    <Typography
-                      variant="mobile-menu"
-                      className={`${router.pathname == el.link ? '' : 'text-white/70 '}group-hover:text-white `}
-                    >
-                      {el.name}
-                    </Typography>
-                  </a>
-                </div>
-              </Link>
-            )
-          })}
-        </div>
-        <div id="icons" className="flex gap-[30px]">
-          <Link href={'https://www.facebook.com/shambala.mn/'}>
-            <a className="hover:scale-125" target="_blank">
-              {handleIcon({
-                icon: 'facebook',
-                size: 16,
-                className: 'text-menuIcon-gray hover:text-primary-yellow',
-              })}
-            </a>
-          </Link>
-
-          <Link href={'https://www.twitter.com'}>
-            <a className="hover:scale-125" target="_blank">
-              {handleIcon({
-                icon: 'twitter',
-                size: 16,
-                className: 'text-menuIcon-gray hover:text-primary-yellow',
-              })}
-            </a>
-          </Link>
-          <Link href={'https://www.google.com/gmail/'}>
-            <a className="hover:scale-125" target="_blank">
-              {handleIcon({
-                icon: 'mail',
-                size: 16,
-                className: 'text-menuIcon-gray hover:text-primary-yellow',
-              })}
-            </a>
-          </Link>
-          <Link href={'https://www.instagram.com/shambala2056/'}>
-            <a className="hover:scale-125" target="_blank">
-              {handleIcon({
-                icon: 'instagram',
-                size: 16,
-                className: 'text-menuIcon-gray hover:text-primary-yellow',
-              })}
-            </a>
-          </Link>
+            <Link href={'https://www.twitter.com'}>
+              <a className="hover:scale-125" target="_blank">
+                {handleIcon({
+                  icon: 'twitter',
+                  size: 16,
+                  className: 'text-menuIcon-gray hover:text-primary-yellow',
+                })}
+              </a>
+            </Link>
+            <Link href={'https://www.google.com/gmail/'}>
+              <a className="hover:scale-125" target="_blank">
+                {handleIcon({
+                  icon: 'mail',
+                  size: 16,
+                  className: 'text-menuIcon-gray hover:text-primary-yellow',
+                })}
+              </a>
+            </Link>
+            <Link href={'https://www.instagram.com/shambala2056/'}>
+              <a className="hover:scale-125" target="_blank">
+                {handleIcon({
+                  icon: 'instagram',
+                  size: 16,
+                  className: 'text-menuIcon-gray hover:text-primary-yellow',
+                })}
+              </a>
+            </Link>
+          </div>
         </div>
       </div>
+      
+      <div className={`w-full h-fit px-10  ${ router.pathname == "/whatwedoing" ? "block" : "hidden" }`}>
+         <SustainGoals />
+       </div>
+     
     </div>
   )
 }
