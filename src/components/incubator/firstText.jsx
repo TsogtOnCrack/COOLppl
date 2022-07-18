@@ -3,12 +3,27 @@ import Emphasis from 'components/ligature'
 import { PADDINGX } from 'constants/layout'
 import { useMediaQuery } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
+import { motion } from 'framer-motion'
 
 export const FirstText = (props) => {
   const { bigText, subText, paragraph } = props
 
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('sm'))
+  const up = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+    },
+    visible: {
+      transition: {
+        delay: 0.3,
+        duration: 0.8,
+      },
+      opacity: 1,
+      y: 0,
+    },
+  }
 
   return (
     <div className={`flex flex-col md:flex-row justify-between items-center min-h-fit max-w-shambWidth ${PADDINGX} `}>
@@ -30,7 +45,6 @@ export const FirstText = (props) => {
           </defs>
         </svg>
       </div>
-
       <div className="absolute block md:hidden left-[calc(50%+100px)]">
         <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d_1355_18206)">
@@ -63,14 +77,13 @@ export const FirstText = (props) => {
           </defs>
         </svg>
       </div>
-
-      <Typography variant={matches ? 'h4' : 'h3'} className=" z-10 w-full md:w-[40%] text-white">
-        {bigText}
-      </Typography>
-
+      <motion.div variants={up} initial="hidden" whileInView={'visible'} className="z-10 w-full md:w-[40%] text-white">
+        <Typography variant={matches ? 'h4' : 'h3'} className="">
+          {bigText}
+        </Typography>
+      </motion.div>
       <div className=" h-14 md:h-0"></div>
-
-      <div className=" flex flex-col w-full md:w-[50%]">
+      <motion.div variants={up} initial="hidden" whileInView={'visible'} className=" flex flex-col w-full md:w-[50%]">
         <Typography variant="yeloo" className=" z-10 text-[#C7B36D]">
           {subText}
         </Typography>
@@ -78,7 +91,7 @@ export const FirstText = (props) => {
           {paragraph}
         </Typography>
         <p className=" z-10 underline text-white/60 underline-offset-1">See more</p>
-      </div>
+      </motion.div>
     </div>
   )
 }

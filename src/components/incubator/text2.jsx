@@ -4,16 +4,50 @@ import { PADDINGX } from 'constants/layout'
 import { GoalCard } from 'components'
 import { useMediaQuery } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
+import { motion } from 'framer-motion'
 
 export const Text2 = (props) => {
   const { bigText, paragraph, goals } = props
 
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('sm'))
+  const left = {
+    hidden: {
+      opacity: 0,
+      x: -30,
+    },
+    visible: {
+      transition: {
+        delay: 0.3,
+        duration: 0.8,
+      },
+      opacity: 1,
+      x: 0,
+    },
+  }
+  const right = {
+    hidden: {
+      opacity: 0,
+      x: 30,
+    },
+    visible: {
+      transition: {
+        delay: 0.3,
+        duration: 0.8,
+      },
+      opacity: 1,
+      x: 0,
+    },
+  }
 
   return (
     <div className={` ${PADDINGX} max-w-shambWidth flex flex-col md:flex-row items-center justify-between z-20 `}>
-      <div className=" hidden md:block absolute mb-[450px]">
+      <motion.div
+        variants={left}
+        initial="hidden"
+        whileInView={'visible'}
+        className=" hidden md:block absolute mb-[450px]"
+      >
         <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d_1355_18517)">
             <circle cx="25" cy="25" r="5" fill="#FFD217" />
@@ -44,9 +78,14 @@ export const Text2 = (props) => {
             </filter>
           </defs>
         </svg>
-      </div>
+      </motion.div>
 
-      <div className="hidden md:block absolute mt-40 left-[calc(50%-100px)] ">
+      <motion.div
+        variants={left}
+        initial="hidden"
+        whileInView={'visible'}
+        className="hidden md:block absolute mt-40 left-[calc(50%-100px)] "
+      >
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d_1355_18516)">
             <circle cx="32" cy="32" r="8" fill="#FFD217" />
@@ -77,7 +116,7 @@ export const Text2 = (props) => {
             </filter>
           </defs>
         </svg>
-      </div>
+      </motion.div>
 
       <div className="block md:hidden absolute left-0 mt-96">
         <svg width="166" height="288" viewBox="0 0 166 288" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -131,7 +170,12 @@ export const Text2 = (props) => {
         </svg>
       </div>
 
-      <div className="flex flex-col w-full md:w-[51%] justify-center items-center">
+      <motion.div
+        variants={left}
+        initial="hidden"
+        whileInView={'visible'}
+        className="flex flex-col w-full md:w-[51%] justify-center items-center"
+      >
         <Emphasis
           ts=" flex justify-center md:justify-start"
           hrClasses="my-3"
@@ -143,13 +187,18 @@ export const Text2 = (props) => {
         <Typography variant="body-web" className="text-white/60">
           {paragraph}
         </Typography>
-      </div>
+      </motion.div>
 
-      <div className="flex flex-col items-end justify-center w-full md:w-[45%]">
+      <motion.div
+        variants={right}
+        initial="hidden"
+        whileInView={'visible'}
+        className="flex flex-col items-end justify-center w-full md:w-[45%]"
+      >
         {goals.map((el) => {
           return <GoalCard index={el.index} desc={el.text} className=" items-center my-8" />
         })}
-      </div>
+      </motion.div>
     </div>
   )
 }

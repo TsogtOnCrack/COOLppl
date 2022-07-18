@@ -2,12 +2,28 @@ import BigTitle from './bigTitle'
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { PADDINGX } from 'constants/layout'
+import { motion } from 'framer-motion'
 
 const OurPlanetFirst = () => {
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('sm'))
+  const title = {
+    hidden: {
+      opacity: 0,
+      x: -30,
+    },
+    visible: {
+      transition: {
+        delay: 0.3,
+        duration: 0.8,
+      },
+      opacity: 1,
+      x: 0,
+    },
+  }
+
   return (
-    <div className="relative h-screen w-screen">
+    <motion.div variants={title} initial="hidden" whileInView={'visible'} className="relative h-screen w-screen">
       <div id="spacer" className="h-[242px] md:h-72"></div>
       <div className={matches ? `w-screen ${PADDINGX}` : 'w-full flex justify-center'}>
         <div className={matches ? 'hidden' : 'absolute top-[16%] left-[11%] z-20'}>
@@ -227,8 +243,8 @@ const OurPlanetFirst = () => {
         <div
           className={
             matches
-              ? 'absolute w-[400px] -top-[12%] -right-[45%] z-30'
-              : 'absolute w-[1200px] -top-[23%] -right-[20%] z-30'
+              ? 'absolute w-[400px] -top-[12%] -right-[45%] z-30 animate-spin-slow'
+              : 'absolute w-[1200px] -top-[23%] -right-[20%] z-30 animate-spin-slow'
           }
         >
           <img src="assets\realearth.webp" alt="" />
@@ -236,7 +252,7 @@ const OurPlanetFirst = () => {
 
         <div id="spacer" className={matches ? 'h-20' : 'h-72'}></div>
 
-        <div className="w-full z-40">
+        <motion.div variants={title} initial="hidden" whileInView={'visible'} className="w-full md:w-[80%] z-40">
           <BigTitle
             titleTop="Our Planet"
             titleBtm="Our Garden"
@@ -244,9 +260,9 @@ const OurPlanetFirst = () => {
             category2="Sustainable"
             category3="Scanable"
           />
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

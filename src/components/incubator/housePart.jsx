@@ -1,5 +1,6 @@
 import Typography from 'components/typography'
 import { PADDINGX } from 'constants/layout'
+import { motion } from 'framer-motion'
 
 const data = {
   imageLink: 'assets/houseBig.png',
@@ -7,10 +8,43 @@ const data = {
 
 export const House = (props) => {
   const { subText, bigText, paragraph } = props
+  const down = {
+    hidden: {
+      opacity: 0,
+      y: -20,
+    },
+    visible: {
+      transition: {
+        delay: 0.3,
+        duration: 0.8,
+      },
+      opacity: 1,
+      y: 0,
+    },
+  }
+  const up = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+    },
+    visible: {
+      transition: {
+        delay: 0.3,
+        duration: 0.8,
+      },
+      opacity: 1,
+      y: 0,
+    },
+  }
 
   return (
     <div className={` min-h-[650px] items-end  md:items-center flex flex-col md:flex-row  `}>
-      <div className=" absolute z-20 left-[calc(50%-300px)] mb-80 md:block hidden ">
+      <motion.div
+        variants={up}
+        initial="hidden"
+        whileInView={'visible'}
+        className=" absolute z-20 left-[calc(50%-300px)] mb-80 md:block hidden "
+      >
         <svg width="597" height="367" viewBox="0 0 597 367" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d_452_1383)">
             <circle cx="275" cy="342" r="5" fill="#FFD217" />
@@ -93,9 +127,14 @@ export const House = (props) => {
             </filter>
           </defs>
         </svg>
-      </div>
+      </motion.div>
 
-      <div className="block md:hidden absolute right-0 opacity-60 mt-[600px]">
+      <motion.div
+        variants={up}
+        initial="hidden"
+        whileInView={'visible'}
+        className="block md:hidden absolute right-0 opacity-60 mt-[600px]"
+      >
         <svg width="189" height="356" viewBox="0 0 189 356" fill="none" xmlns="http://www.w3.org/2000/svg">
           <ellipse rx="53.5" ry="138" transform="matrix(-1 0 0 1 141.5 138)" fill="url(#paint0_linear_452_1383)" />
           <ellipse rx="53.5" ry="138" transform="matrix(-1 0 0 1 53.5 218)" fill="url(#paint1_linear_452_1383)" />
@@ -124,15 +163,25 @@ export const House = (props) => {
             </linearGradient>
           </defs>
         </svg>
-      </div>
+      </motion.div>
 
-      <div className="md:absolute flex w-[350px] md:w-[800px] px-0 right-0 ">
+      <motion.div
+        variants={up}
+        initial="hidden"
+        whileInView={'visible'}
+        className="md:absolute flex w-[350px] md:w-[800px] px-0 right-0 "
+      >
         <img src={data.imageLink} alt="" />
-      </div>
+      </motion.div>
 
       <div className=" h-28 md:h-0"></div>
 
-      <div className={` ${PADDINGX} flex flex-col z-10 w-full md:w-[50%]`}>
+      <motion.div
+        variants={up}
+        initial="hidden"
+        whileInView={'visible'}
+        className={` ${PADDINGX} flex flex-col z-10 w-full md:w-[50%]`}
+      >
         <Typography variant="yeloo" className=" text-[#C7B36D]">
           {subText}
         </Typography>
@@ -148,7 +197,7 @@ export const House = (props) => {
         <Typography variant="body-web" className="text-white py-2">
           {paragraph.three}
         </Typography>
-      </div>
+      </motion.div>
     </div>
   )
 }

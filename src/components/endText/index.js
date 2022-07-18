@@ -1,6 +1,7 @@
 import { PADDINGX } from 'constants/layout'
 import { Title } from './title'
 import { Body } from './body'
+import { motion } from 'framer-motion'
 
 const data = {
   title: 'IGM Зорилго Нэгт Хүмүүсийн Хүрээлэн',
@@ -19,11 +20,30 @@ const data = {
   },
 }
 
-const Ecard = (props) => {
-  const {} = props
+const Ecard = (prop) => {
+  const {} = prop
+  const up = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+    },
+    visible: {
+      transition: {
+        delay: 0.3,
+        duration: 0.8,
+      },
+      opacity: 1,
+      y: 0,
+    },
+  }
 
   return (
-    <div className={` max-w-shambWidth ${PADDINGX} flex flex-col items-center w-full justify-center `}>
+    <motion.div
+      variants={up}
+      initial="hidden"
+      whileInView={'visible'}
+      className={` max-w-shambWidth ${PADDINGX} flex flex-col items-center w-full justify-center `}
+    >
       <div className="hidden md:block absolute left-[calc(50%+30px)] z-0 ">
         <svg width="634" height="634" viewBox="0 0 634 634" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="317" cy="317" r="317" fill="url(#paint0_linear_1355_18505)" />
@@ -182,7 +202,7 @@ const Ecard = (props) => {
       <Body db={data.body2} />
 
       <div className=" h-44"></div>
-    </div>
+    </motion.div>
   )
 }
 

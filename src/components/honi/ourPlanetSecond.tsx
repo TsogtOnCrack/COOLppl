@@ -3,14 +3,48 @@ import useMediaQuery from '@mui/material/useMediaQuery'
 import GoalCard from 'components/goalCard'
 import Emphasis from 'components/ligature/emphasis'
 import { PADDINGX } from 'constants/layout'
+import { motion } from 'framer-motion'
 
 const OurPlanetSecond = () => {
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('sm'))
   const mid = useMediaQuery(theme.breakpoints.down('md'))
+  const title = {
+    hidden: {
+      opacity: 0,
+      y: -20,
+    },
+    visible: {
+      transition: {
+        delay: 0.3,
+        duration: 0.8,
+      },
+      opacity: 1,
+      y: 0,
+    },
+  }
+  const goal = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+    },
+    visible: {
+      transition: {
+        delay: 0.3,
+        duration: 0.8,
+      },
+      opacity: 1,
+      y: 0,
+    },
+  }
   return (
     <div className="relative">
-      <div className={matches ? 'hidden' : 'absolute top-[20%] -left-[3%] z-10'}>
+      <motion.div
+        variants={title}
+        initial="hidden"
+        whileInView={'visible'}
+        className={matches ? 'hidden' : 'absolute top-[20%] -left-[3%] z-10'}
+      >
         <svg width="634" height="634" viewBox="0 0 634 634" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="180" cy="317" r="317" fill="url(#paint0_linear_1355_18021)" />
           <defs>
@@ -27,8 +61,13 @@ const OurPlanetSecond = () => {
             </linearGradient>
           </defs>
         </svg>
-      </div>
-      <div className={matches ? 'hidden' : 'absolute top-[30%] left-[10%] z-20'}>
+      </motion.div>
+      <motion.div
+        variants={goal}
+        initial="hidden"
+        whileInView={'visible'}
+        className={matches ? 'hidden' : 'absolute top-[30%] left-[10%] z-20'}
+      >
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d_1355_18097)">
             <circle cx="32" cy="32" r="8" fill="#FFD217" />
@@ -59,8 +98,13 @@ const OurPlanetSecond = () => {
             </filter>
           </defs>
         </svg>
-      </div>
-      <div className={matches ? 'hidden' : 'absolute top-[18%] left-[27%] z-20'}>
+      </motion.div>
+      <motion.div
+        variants={goal}
+        initial="hidden"
+        whileInView={'visible'}
+        className={matches ? 'hidden' : 'absolute top-[18%] left-[27%] z-20'}
+      >
         <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d_1355_18088)">
             <circle cx="25" cy="25" r="5" fill="#FFD217" />
@@ -91,8 +135,13 @@ const OurPlanetSecond = () => {
             </filter>
           </defs>
         </svg>
-      </div>
-      <div className={matches ? 'absolute top-0 left-[16.5%] z-20' : 'hidden'}>
+      </motion.div>
+      <motion.div
+        variants={title}
+        initial="hidden"
+        whileInView={'visible'}
+        className={matches ? 'absolute top-0 left-[16.5%] z-20' : 'hidden'}
+      >
         <svg width="276" height="276" viewBox="0 0 276 276" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="138" cy="138" r="138" fill="url(#paint0_linear_1355_18143)" />
           <defs>
@@ -109,8 +158,13 @@ const OurPlanetSecond = () => {
             </linearGradient>
           </defs>
         </svg>
-      </div>
-      <div className={matches ? 'absolute top-[10px] left-[27%] z-20' : 'hidden'}>
+      </motion.div>
+      <motion.div
+        variants={title}
+        initial="hidden"
+        whileInView={'visible'}
+        className={matches ? 'absolute top-[10px] left-[27%] z-20' : 'hidden'}
+      >
         <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d_1355_18197)">
             <circle cx="25" cy="25" r="5" fill="#FFD217" />
@@ -141,8 +195,13 @@ const OurPlanetSecond = () => {
             </filter>
           </defs>
         </svg>
-      </div>
-      <div className={matches ? 'absolute top-[130px] left-[70%] z-20' : 'hidden'}>
+      </motion.div>
+      <motion.div
+        variants={goal}
+        initial="hidden"
+        whileInView={'visible'}
+        className={matches ? 'absolute top-[130px] left-[70%] z-20' : 'hidden'}
+      >
         <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d_1355_18199)">
             <circle cx="23" cy="23" r="3" fill="#FFD217" />
@@ -173,7 +232,7 @@ const OurPlanetSecond = () => {
             </filter>
           </defs>
         </svg>
-      </div>
+      </motion.div>
 
       <div className="flex justify-center items-center absolute top-[45%] left-[75%] z-20">
         <div className={mid ? 'hidden' : 'w-[463px] absolute'}>
@@ -200,13 +259,20 @@ const OurPlanetSecond = () => {
 
       <div className="flex flex-col items-center">
         <div className={matches ? 'w-full flex flex-col items-center' : 'w-[60%] flex flex-col'}>
-          <Emphasis
-            ts={matches ? ' flex justify-center py-2 ' : ' flex justify-start '}
-            content={'What we’re doing?'}
-            className={'text-primary-white z-40'}
-          />
+          <motion.div variants={title} initial="hidden" whileInView={'visible'}>
+            <Emphasis
+              ts={matches ? ' flex justify-center py-2 ' : ' flex justify-start '}
+              content={'What we’re doing?'}
+              className={'text-primary-white z-40'}
+            />
+          </motion.div>
           <div id="spacer" className={matches ? 'h-20' : 'h-10'}></div>
-          <div className={`grid grid-rows-3 gap-4 sm:gap-16 z-40 ${PADDINGX} max-w-shambWidth`}>
+          <motion.div
+            variants={goal}
+            initial="hidden"
+            whileInView={'visible'}
+            className={`grid grid-rows-3 gap-4 sm:gap-16 z-40 ${PADDINGX} max-w-shambWidth`}
+          >
             <GoalCard
               desc={
                 matches
@@ -231,12 +297,17 @@ const OurPlanetSecond = () => {
               }
               index="03"
             />
-          </div>
+          </motion.div>
         </div>
 
         <div id="spacer" className={matches ? 'h-20' : 'h-64'}></div>
 
-        <div className="grid grid-cols-3 gap-9 sm:gap-40 z-40">
+        <motion.div
+          variants={goal}
+          initial="hidden"
+          whileInView={'visible'}
+          className="grid grid-cols-3 gap-9 sm:gap-40 z-40"
+        >
           <div className={matches ? 'w-[81px]' : 'w-[200px]'}>
             <img src="assets\igm\igmIncubator.png" alt="" />
           </div>
@@ -246,7 +317,7 @@ const OurPlanetSecond = () => {
           <div className={matches ? 'w-[81px]' : 'w-[200px]'}>
             <img src="assets\igm\igmGarden.png" alt="" />
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   )

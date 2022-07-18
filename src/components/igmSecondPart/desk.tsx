@@ -4,9 +4,9 @@ import { IgmSecondPartPictureData } from "../../../public/assets/IgmSecondPartPi
 const DeskIgmSecondPart = () => {
 
     return (
-        <div className="max-w-shambWidth w-screen invisible md:visible -z-50 md:z-0 absolute md:relative flex justify-center items-center top-0 mt-[180px]">
-            <div className="grid grid-cols-3 gap-y-[34px] gap-x-[25px]">
-                <img src="assets/IgmSecondPartPictures/lifeOnLand.jpg" alt="" />
+        <div className="max-w-shambWidth w-screen invisible md:visible -z-40 md:z-40 absolute md:relative flex justify-center items-center top-0 mt-[180px]">
+            <div className="grid grid-cols-3 gap-y-[34px] gap-x-[25px] z-40">
+                <img src="assets/IgmSecondPartPictures/lifeOnLand.jpg" alt=""/>
                 {IgmSecondPartPictureData.map((el) => {
                     return <Cells pic={el.picture} text={el.text} textClassName={"px-[18px]"} />
                 })}
