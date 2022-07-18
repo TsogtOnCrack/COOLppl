@@ -1,14 +1,15 @@
 import BigTitle from './bigTitle'
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
+import { PADDINGX } from 'constants/layout'
 
 const OurPlanetFirst = () => {
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('sm'))
   return (
-    <div className="relative h-screen">
+    <div className="relative h-screen w-screen">
       <div id="spacer" className="h-[242px] md:h-72"></div>
-      <div className={matches ? 'w-screen' : 'w-full flex justify-center'}>
+      <div className={matches ? `w-screen ${PADDINGX}` : 'w-full flex justify-center'}>
         <div className={matches ? 'hidden' : 'absolute top-[16%] left-[11%] z-20'}>
           <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_1355_18086)">
@@ -235,7 +236,7 @@ const OurPlanetFirst = () => {
 
         <div id="spacer" className={matches ? 'h-20' : 'h-72'}></div>
 
-        <div className="w-[80%] z-40">
+        <div className="w-full z-40">
           <BigTitle
             titleTop="Our Planet"
             titleBtm="Our Garden"

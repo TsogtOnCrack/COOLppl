@@ -2,6 +2,7 @@ import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import GoalCard from 'components/goalCard'
 import Emphasis from 'components/ligature/emphasis'
+import { PADDINGX } from 'constants/layout'
 
 const OurPlanetSecond = () => {
   const theme = useTheme()
@@ -199,9 +200,13 @@ const OurPlanetSecond = () => {
 
       <div className="flex flex-col items-center">
         <div className={matches ? 'w-full flex flex-col items-center' : 'w-[60%] flex flex-col'}>
-          <Emphasis ts={matches ? " flex justify-center py-2 " : " flex justify-start "} content={'What we’re doing?'} className={'text-primary-white z-40'} />
+          <Emphasis
+            ts={matches ? ' flex justify-center py-2 ' : ' flex justify-start '}
+            content={'What we’re doing?'}
+            className={'text-primary-white z-40'}
+          />
           <div id="spacer" className={matches ? 'h-20' : 'h-10'}></div>
-          <div className="grid grid-rows-3 gap-4 sm:gap-16 z-40">
+          <div className={`grid grid-rows-3 gap-4 sm:gap-16 z-40 ${PADDINGX} max-w-shambWidth`}>
             <GoalCard
               desc={
                 matches
