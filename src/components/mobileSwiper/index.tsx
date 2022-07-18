@@ -14,7 +14,7 @@ const MobileSwiper = (props: Props) => {
   const { dataLength, data, slideClassName } = props
 
   return (
-    <div style={{ width: `calc(${dataLength} * 230px)` }}>
+    <div className='flex justify-center' style={{ width: `calc(${dataLength} * 230px)` }}>
       <Swiper
         slidesPerView={dataLength - 2}
         centeredSlides={true}
@@ -29,9 +29,9 @@ const MobileSwiper = (props: Props) => {
       >
         {data.map((info, index) => {
           return (
-            <SwiperSlide key={index} className="bg-transparent">
+            <SwiperSlide key={index} className="bg-transparent flex justify-center">
               {({ isActive }) => (
-                <div className="relative w-[310px] h-[381px] flex  items-center">
+                <div className="relative w-[310px] h-[381px] flex items-center">
                   <img
                     src={info.picture}
                     alt=""
