@@ -3,7 +3,7 @@ import { Emphasis, GoalCard } from "components"
 import { animate, motion } from 'framer-motion'
 import { PADDINGX } from "constants/layout"
 
-const OurGoalsPart = () => {
+const OurGoalsPart = ({data}) => {
 
     const container = {
         visible: {
@@ -48,15 +48,15 @@ const OurGoalsPart = () => {
                 <div className="grid md:gap-[157px] gap-[42px]">
                     <motion.div variants={item}>
                         <div className="text-center" >
-                            <Emphasis children="Our Goals" left={true} />
+                            <Emphasis children = {data.header} left={true} />
                         </div>
                     </motion.div>
                     <motion.div variants={item}> 
                         <div className="grid md:gap-20 gap-[60px] md:w-[100%] w-[97%]">
-                            <GoalCard desc="Renewable energy infrastructure will be developed in Dornogovi aimag." index="01" />
-                            <GoalCard desc="Land degradation will be prevented within the framework of the Sustainable Development Goals." index="02" />
-                            <GoalCard desc="Rehabilitate by establishing green zones in accordance with the specifics of desertified areas." index="03" />
-                            <GoalCard desc="Support domestic technological innovation." index="04" />
+                            
+                            {data.goals.map((el, index)=>{
+                                return <GoalCard desc={el.tect} index={`0${index}`} />
+                            })}
                         </div>
                     </motion.div>
 
