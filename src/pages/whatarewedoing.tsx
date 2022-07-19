@@ -41,7 +41,7 @@ text: {
   modd :{
     title: {
       small : "Price per tree",
-      Big : "80,000 MNT"
+      big : "80,000 MNT"
     },
     list: [
       { icon: 'users', text: 'Digital certificate of the tree owner' },
