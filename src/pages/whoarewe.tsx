@@ -8,6 +8,35 @@ import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import CompanyGoals from 'components/honi/companyGoals'
 
+const data = {
+  //first text
+  firstText: {
+    head: 'Our company',
+    body: 'In 2056, an international engineering and research institute will be established in Mongolia that meets the Sustainable Development Goals.',
+  },
+  companyGoals: {
+    head: "Company goals",
+    body: 'In 2056, an international engineering and research institute will be established in Mongolia that meets the Sustainable Development Goals.',
+    list: [
+      {
+        text: 'Rehabilitation will be carried out in desert areas by planting trees suitable for the specifics of the land.',
+      },
+      {
+        text: 'Renewable energy infrastructure development.',
+      },
+      {
+        text: 'Promoting innovation.',
+      },
+      {
+        text: 'Work within the framework of the Sustainable Development Goals.',
+      },
+      {
+        text: 'Reduce urban concentration by combining art and technology.',
+      },
+    ],
+  },
+}
+
 export default function Home() {
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('md'))
@@ -118,10 +147,9 @@ export default function Home() {
               <img src="assets/mainlogo.svg" alt="" />
             </motion.div>
             <motion.div variants={item} className="flex w-[90%] md:w-[70%] flex-col text-center gap-14 mt-20">
-              <Emphasis content="Our company" />
+              <Emphasis content={data.firstText.head} />
               <Typography variant="body-web" className="text-primary-white opacity-60">
-                In 2056, an international engineering and research institute will be established in Mongolia that meets
-                the Sustainable Development Goals.
+                {data.firstText.body}
               </Typography>
             </motion.div>
           </motion.div>
@@ -153,15 +181,13 @@ export default function Home() {
             <div className="md:hidden absolute -top-[45%]">
               <img src="assets/shambalaIcon.svg" alt="" />
             </div>
-            <Emphasis content="Company goals" />
+            <Emphasis content={data.companyGoals.head} />
             <Typography variant="body-web" className="text-primary-white opacity-60 w-[72%]">
-              {matches
-                ? 'In 2056, an international engineering and research institute will be established in Mongolia that meets the Sustainable Development Goals.'
-                : `76.8 percent of Mongolia's territory is degraded. We rehabilitate desertified areas and plant trees tocombat soil degradation. Our team invites all individuals and organizations to work with us for a long time and contribute to the environment.`}
+              {data.companyGoals.body}
             </Typography>
           </motion.div>
 
-          <CompanyGoals />
+          <CompanyGoals data = {data.companyGoals.list} />
         </motion.div>
         <motion.div variants={container} initial="hidden" whileInView={'visible'}>
           <motion.div variants={item} className=" max-w-shambWidth flex flex-wrap justify-center my-20">
