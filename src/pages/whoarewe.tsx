@@ -7,35 +7,10 @@ import { motion } from 'framer-motion'
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import CompanyGoals from 'components/honi/companyGoals'
+import Content from "../../public/assets/data.js"
 
-const data = {
-  //first text
-  firstText: {
-    head: 'Our company',
-    body: 'In 2056, an international engineering and research institute will be established in Mongolia that meets the Sustainable Development Goals.',
-  },
-  companyGoals: {
-    head: "Company goals",
-    body: 'In 2056, an international engineering and research institute will be established in Mongolia that meets the Sustainable Development Goals.',
-    list: [
-      {
-        text: 'Rehabilitation will be carried out in desert areas by planting trees suitable for the specifics of the land.',
-      },
-      {
-        text: 'Renewable energy infrastructure development.',
-      },
-      {
-        text: 'Promoting innovation.',
-      },
-      {
-        text: 'Work within the framework of the Sustainable Development Goals.',
-      },
-      {
-        text: 'Reduce urban concentration by combining art and technology.',
-      },
-    ],
-  },
-}
+
+const data = Content.whoAreWe
 
 export default function Home() {
   const theme = useTheme()

@@ -5,71 +5,9 @@ import { PADDINGX } from 'constants/layout'
 import { NaadamEvents, BigPicture, NaadamPlanText, GoalCard, Emphasis, Pictures } from 'components'
 import { motion } from 'framer-motion'
 
-const data = {
-  //First Part
-  bgPicture1: 'assets/taiz shono 1.webp',
-  locationPicture: 'assets/naadamicon.svg',
-  title1: 'Naadam',
-  btext: `Within the framework of the Global Sustainable Development Goals in Mongolia's desertified region, the aim is to promote the influence of Mongolian culture to the world by circulating national culture and Mongolian intellectual creations based on innovation and copyright, and developing cultural production.`,
-  loc: 'location',
-  location: 'Dornogobi aimag',
-  goals: [
-    { index: '01', text: "To promote Mongolia's heritage, art and culture internationally through technology" },
-    { index: '02', text: "Rehabilitation through desertification in Mongolia's arts" },
-    { index: '03', text: "Long-term protection of Mongolia's terrestrial ecosystem" },
-    {
-      index: '04',
-      text: 'To introduce the development of Mongolian art and technology to the world and to exchange international experience',
-    },
-    { index: '05', text: 'Disseminate Mongolian heritage' },
-    { index: '06', text: 'Introduce the value of art and technology to society' },
-  ],
+import Content from '../../public/assets/data.js'
 
-  //NaadamEvents Part
-  title2: 'Naadam events',
-  list: [
-    { icon: 'drone', text: 'Replace horse racing with drone racing' },
-    { icon: 'controller', text: 'Replace wrestling with e-sports and information security competitions' },
-    { icon: 'rocket-2', text: 'Replacing archery with missiles and free flight' },
-  ],
-
-  //BigPicture Part
-  bgPicture2: 'assets/eCamp3.png',
-  mainPicture: 'assets/bigPictureSH.jpg',
-
-  //NaadamPlanText Part
-  title3: '‘’Naadam’’ plan',
-  paragraph1:
-    'Power grid, space technology development, Blockchain technology development, Digital artists development, sculpture development art installations, digital clothing design There will be a panel discussion with industry experts on the topic.',
-
-  //Pictures Part
-  pictures: [
-    {
-      picture: '/assets/naadamPlanPictures/hogiinSavBioNoil.jpg',
-      text: 'There are also three types of competitions and technologies from traditional festivals Exhibitions, comedies and podcasts will be broadcast live.',
-    },
-    {
-      picture: 'assets/naadamPlanPictures/pond.jpg',
-      text: 'There are also three types of competitions and technologies from traditional festivals Exhibitions, comedies and podcasts will be broadcast live.',
-    },
-    {
-      picture: 'assets/naadamPlanPictures/taiz.jpg',
-      text: 'There are also three types of competitions and technologies from traditional festivals Exhibitions, comedies and podcasts will be broadcast live.',
-    },
-    {
-      picture: 'assets/naadamPlanPictures/pondHoloos.jpg',
-      text: 'There are also three types of competitions and technologies from traditional festivals Exhibitions, comedies and podcasts will be broadcast live.',
-    },
-    {
-      picture: 'assets/naadamPlanPictures/odHarahHesegShono.jpg',
-      text: 'There are also three types of competitions and technologies from traditional festivals Exhibitions, comedies and podcasts will be broadcast live.',
-    },
-    {
-      picture: 'assets/naadamPlanPictures/zadgaiKino.jpg',
-      text: 'There are also three types of competitions and technologies from traditional festivals Exhibitions, comedies and podcasts will be broadcast live.',
-    },
-  ],
-}
+const data = Content.naadam
 
 const goal = {
   hidden: {

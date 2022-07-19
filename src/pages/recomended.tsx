@@ -7,6 +7,10 @@ import { handleIcon } from 'utils'
 import { PADDINGX } from 'constants/layout'
 import { motion } from 'framer-motion'
 
+import Content from "../../public/assets/data.js"
+
+const data = Content.recomended
+
 const FirstPart = () => {
   const data = {
     mouse: 'assets/svgs/mouse.svg',
