@@ -4,7 +4,9 @@ import useMediaQuery from '@mui/material/useMediaQuery'
 import { PADDINGX } from 'constants/layout'
 import { motion } from 'framer-motion'
 
-const OurPlanetFirst = () => {
+const OurPlanetFirst = (props) => {
+  const { ourPlanetFirst } = props
+
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('sm'))
   const title = {
@@ -237,7 +239,7 @@ const OurPlanetFirst = () => {
           ></div>
         </div>
         <div className={matches ? 'hidden' : 'z-40 absolute bottom-14 left-1/2 transform -translate-x-1/2'}>
-          <img src="assets/svgs/mouse.svg" alt="" />
+          <img src={ourPlanetFirst.mouse} alt="" />
         </div>
 
         <div
@@ -247,18 +249,18 @@ const OurPlanetFirst = () => {
               : 'absolute w-[1200px] -top-[23%] -right-[20%] z-30 animate-spin-slow'
           }
         >
-          <img src="assets\realearth.webp" alt="" />
+          <img src={ourPlanetFirst.earth} alt="" />
         </div>
 
         <div id="spacer" className={matches ? 'h-20' : 'h-72'}></div>
 
         <motion.div variants={title} initial="hidden" whileInView={'visible'} className="w-full md:w-[80%] z-40">
           <BigTitle
-            titleTop="Our Planet"
-            titleBtm="Our Garden"
-            category1="Synergy"
-            category2="Sustainable"
-            category3="Scanable"
+            titleTop={ourPlanetFirst.bigTitle.titleTop}
+            titleBtm={ourPlanetFirst.bigTitle.titleBtm}
+            category1={ourPlanetFirst.bigTitle.category1}
+            category2={ourPlanetFirst.bigTitle.category2}
+            category3={ourPlanetFirst.bigTitle.category3}
           />
         </motion.div>
       </div>

@@ -5,7 +5,9 @@ import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { motion } from 'framer-motion'
 
-const IgmSecondPart = () => {
+const IgmSecondPart = (props) => {
+  const { igmSecondPart } = props
+
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('sm'))
   const up = {
@@ -252,9 +254,9 @@ const IgmSecondPart = () => {
         </svg>
       </div>
 
-      <IgmSecondPartText />
-      <DeskIgmSecondPart />
-      <MobileIgmSecondPart />
+      <IgmSecondPartText title={igmSecondPart.title} description={igmSecondPart.description} />
+      <DeskIgmSecondPart cells={igmSecondPart.cells} />
+      <MobileIgmSecondPart cells={igmSecondPart.cells} />
     </motion.div>
   )
 }

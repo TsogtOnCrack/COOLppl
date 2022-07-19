@@ -5,11 +5,13 @@ import Emphasis from 'components/ligature/emphasis'
 import { PADDINGX } from 'constants/layout'
 import { motion } from 'framer-motion'
 
-const OurPlanetSecond = () => {
+const OurPlanetSecond = (props) => {
+  const { ourPlanetSecond } = props
+
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('sm'))
   const mid = useMediaQuery(theme.breakpoints.down('md'))
-  const title = {
+  const titleAni = {
     hidden: {
       opacity: 0,
       y: -20,
@@ -23,7 +25,7 @@ const OurPlanetSecond = () => {
       y: 0,
     },
   }
-  const goal = {
+  const goalAni = {
     hidden: {
       opacity: 0,
       y: 30,
@@ -40,7 +42,7 @@ const OurPlanetSecond = () => {
   return (
     <div className="relative">
       <motion.div
-        variants={title}
+        variants={titleAni}
         initial="hidden"
         whileInView={'visible'}
         className={matches ? 'hidden' : 'absolute top-[20%] -left-[3%] z-10'}
@@ -63,7 +65,7 @@ const OurPlanetSecond = () => {
         </svg>
       </motion.div>
       <motion.div
-        variants={goal}
+        variants={goalAni}
         initial="hidden"
         whileInView={'visible'}
         className={matches ? 'hidden' : 'absolute top-[30%] left-[10%] z-20'}
@@ -100,7 +102,7 @@ const OurPlanetSecond = () => {
         </svg>
       </motion.div>
       <motion.div
-        variants={goal}
+        variants={goalAni}
         initial="hidden"
         whileInView={'visible'}
         className={matches ? 'hidden' : 'absolute top-[18%] left-[27%] z-20'}
@@ -137,7 +139,7 @@ const OurPlanetSecond = () => {
         </svg>
       </motion.div>
       <motion.div
-        variants={title}
+        variants={titleAni}
         initial="hidden"
         whileInView={'visible'}
         className={matches ? 'absolute top-0 left-[16.5%] z-20' : 'hidden'}
@@ -160,7 +162,7 @@ const OurPlanetSecond = () => {
         </svg>
       </motion.div>
       <motion.div
-        variants={title}
+        variants={titleAni}
         initial="hidden"
         whileInView={'visible'}
         className={matches ? 'absolute top-[10px] left-[27%] z-20' : 'hidden'}
@@ -197,7 +199,7 @@ const OurPlanetSecond = () => {
         </svg>
       </motion.div>
       <motion.div
-        variants={goal}
+        variants={goalAni}
         initial="hidden"
         whileInView={'visible'}
         className={matches ? 'absolute top-[130px] left-[70%] z-20' : 'hidden'}
@@ -259,63 +261,42 @@ const OurPlanetSecond = () => {
 
       <div className="flex flex-col items-center">
         <div className={matches ? 'w-full flex flex-col items-center' : 'w-[60%] flex flex-col'}>
-          <motion.div variants={title} initial="hidden" whileInView={'visible'}>
+          <motion.div variants={titleAni} initial="hidden" whileInView={'visible'}>
             <Emphasis
               ts={matches ? ' flex justify-center py-2 ' : ' flex justify-start '}
-              content={'What we’re doing?'}
+              content={ourPlanetSecond.title}
               className={'text-primary-white z-40'}
             />
           </motion.div>
           <div id="spacer" className={matches ? 'h-20' : 'h-10'}></div>
           <motion.div
-            variants={goal}
+            variants={goalAni}
             initial="hidden"
             whileInView={'visible'}
             className={`grid grid-rows-3 gap-4 sm:gap-16 z-40 ${PADDINGX} max-w-shambWidth`}
           >
-            <GoalCard
-              desc={
-                matches
-                  ? 'Судалгаа шинжилгээ дээр суурилсан байгальд  ээлтэй тогтвортой цэцэрлэгт хүрээлэнг бий болгох'
-                  : 'Create a natural garden through sustainable botany.'
-              }
-              index="01"
-            />
-            <GoalCard
-              desc={
-                matches
-                  ? 'Эрдэмтэд судлаачид болон олон нийтийн оролцоотойгоор тогтвортой ногоон байгууламжийн инновацийг дэмжих, энэ чиглэлийн системийг хөгжүүлэх.'
-                  : 'House community centres which will facilitate community outreach programs and foster innovation in the agricultural space.'
-              }
-              index="02"
-            />
-            <GoalCard
-              desc={
-                matches
-                  ? 'Олон улсын цэцэрлэгт хүрээлэнгийн гэсэн 3 тэргүүлэх хөтөлбөрөөр дамжуулан инновацийг НЭВТРҮҮЛЭХ : НОГООН ТЕХНОЛОГИЙН ЛАБОРАТОРИ, ИНКУБАТОР, ЗОРИЛГО НЭГТ ХҮМҮҮСИЙН ХҮРЭЭЛЭЛ.'
-                  : 'Facilitate innovation through 2 flagship programs: - IGM LABS -IGM INCUBATOR -IGM COMMUNITY GARDEN'
-              }
-              index="03"
-            />
+            {ourPlanetSecond.goals.map((el) => {
+              return <GoalCard index={el.index} desc={matches ? `${el.textMobile}` : `${el.textDesktop}`} />
+            })}
           </motion.div>
         </div>
 
         <div id="spacer" className={matches ? 'h-20' : 'h-64'}></div>
 
         <motion.div
-          variants={goal}
+          variants={goalAni}
           initial="hidden"
           whileInView={'visible'}
           className="grid grid-cols-3 gap-9 sm:gap-40 z-40"
         >
           <div className={matches ? 'w-[81px]' : 'w-[200px]'}>
-            <img src="assets\igm\igmIncubator.png" alt="" />
+            <img src={ourPlanetSecond.igmIncubator} alt="" />
           </div>
           <div className={matches ? 'w-[81px]' : 'w-[200px]'}>
-            <img src="assets\igm\igmLabs.png" alt="" />
+            <img src={ourPlanetSecond.igmLabs} alt="" />
           </div>
           <div className={matches ? 'w-[81px]' : 'w-[200px]'}>
-            <img src="assets\igm\igmGarden.png" alt="" />
+            <img src={ourPlanetSecond.igmGarden} alt="" />
           </div>
         </motion.div>
       </div>

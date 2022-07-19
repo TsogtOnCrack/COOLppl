@@ -45,7 +45,12 @@ export const FirstText = (props) => {
           </defs>
         </svg>
       </div>
-      <div className="absolute block md:hidden left-[calc(50%+100px)]">
+      <motion.div
+        variants={up}
+        initial="hidden"
+        whileInView={'visible'}
+        className="absolute block md:hidden left-[calc(50%+100px)]"
+      >
         <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d_1355_18206)">
             <circle r="3" transform="matrix(-1 0 0 1 23 23)" fill="#FFD217" />
@@ -76,7 +81,7 @@ export const FirstText = (props) => {
             </filter>
           </defs>
         </svg>
-      </div>
+      </motion.div>
       <motion.div variants={up} initial="hidden" whileInView={'visible'} className="z-10 w-full md:w-[40%] text-white">
         <Typography variant={matches ? 'h4' : 'h3'} className="">
           {bigText}

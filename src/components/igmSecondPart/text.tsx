@@ -19,7 +19,9 @@ const item = {
   },
 }
 
-export const IgmSecondPartText = () => {
+export const IgmSecondPartText = (props) => {
+  const { title, description } = props
+
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('md'))
 
@@ -111,7 +113,7 @@ export const IgmSecondPartText = () => {
             </linearGradient>
           </defs>
         </svg>
-      </div> 
+      </div>
       <div className={matches ? 'absolute top-[200px] -left-[10%] z-10' : 'hidden'}>
         <svg width="107" height="276" viewBox="0 0 107 276" fill="none" xmlns="http://www.w3.org/2000/svg">
           <ellipse cx="53.5" cy="138" rx="53.5" ry="138" fill="url(#paint0_linear_1355_18151)" />
@@ -185,15 +187,13 @@ export const IgmSecondPartText = () => {
         </svg>
       </div>
 
-      <Emphasis children="General planning of the institute" />
+      <Emphasis children={title} />
       <div className="h-[55px]"></div>
       <Typography
         variant={matches ? 'body-web' : 'body-mobile'}
         className="text-center w-[90%] md:w-[49%] md:text-title2 text-white/50 z-40"
       >
-        {matches
-          ? 'Бидний "Art-Tech Empire" Лэнд Арт төсөл маань Дорноговь аймгийн, Төхөмийн хөндий, Ар цацын ус гэх байршлын 5 га газарт нийт 30,000 ширхэг буюу 10,000 бортоготой мод тарих төсөл юм.'
-          : 'Бага насны хүүхдүүд, өсвөр насны залуучууд, ахмад настан болон тусгай хэрэгцээт иргэдийн чөлөөт цагаа өнгөрүүлэх аюулгүй орчин бүрдүүлэх. IGM төсөл нь 5 бүсээс бүрдэнэ. Энэ хэсэг нь тогтвортой технологийн хөгжилд ашиглагдах бөгөөд IGM-н лаборатори, инкубаторын барилга байгууламж, зуны болон өвлийн хүлэмж, машины зогсоол, хог хаягдлын менежментийн систем, цэцэрлэгт хүрээлэн рүү орох хаалга зэргийг багтаана.'}
+        {matches ? `${description.mobile}` : `${description.desktop}`}
       </Typography>
       <div className="h-[55px]"></div>
     </motion.div>

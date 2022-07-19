@@ -3,25 +3,8 @@ import { Title } from './title'
 import { Body } from './body'
 import { motion } from 'framer-motion'
 
-const data = {
-  title: 'IGM Зорилго Нэгт Хүмүүсийн Хүрээлэн',
-  subTitle:
-    'Зорилго Нэгт Хүмүүсийн Хүрээлэн нь Баянзүрх дүүргийн хүн ам зүйн гол оршин суугчдад хөдөө аж ахуйн мэргэжлийг зааж, сургах болно.',
-
-  body1: {
-    subTitle: 'IGM ИНКУБАТОР',
-    title: 'Тус хүрээлэнгийн эрхэм зорилго',
-    body: 'IGM-н хүрээнд үйлдвэрлэсэн, боловсруулсан бүтээгдэхүүнийг тус үйл ажиллагаад оролцогч иргэдэд тарааж, үлдэгдэл бүтээгдэхүүнийг дотоодын зах зээлд борлуулж, Баянзүрх дүүргийн асрамжийн газар, сургууль болон эрсдэлтэй бүлгийн залуучуудад олгох юм',
-  },
-  body2: {
-    subTitle: 'IGM ИНКУБАТОР',
-    title: 'IGM Зорилго Нэгт Хүмүүсийн Хүрээлэн',
-    body: 'IGM-н олон талт үйл ажиллагааны үндэслэл нь органик цэцэрлэгжүүлэлттэй холбоотой эрүүл мэнд, сайн сайхан байдлыг дэмжих, дэлхийтэй харилцах харилцааг хүндэтгэх явдал юм.',
-  },
-}
-
-const Ecard = (prop) => {
-  const {} = prop
+const Ecard = (props) => {
+  const { ecard } = props
   const up = {
     hidden: {
       opacity: 0,
@@ -196,10 +179,10 @@ const Ecard = (prop) => {
         </svg>
       </div>
 
-      <Title title={data.title} subTitle={data.subTitle} />
+      <Title title={ecard.title} subTitle={ecard.subTitle} />
       <div className=" h-24"></div>
-      <Body db={data.body1} l />
-      <Body db={data.body2} />
+      <Body db={ecard.body1} l />
+      <Body db={ecard.body2} />
 
       <div className=" h-44"></div>
     </motion.div>

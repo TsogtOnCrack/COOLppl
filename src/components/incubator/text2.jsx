@@ -118,7 +118,12 @@ export const Text2 = (props) => {
         </svg>
       </motion.div>
 
-      <div className="block md:hidden absolute left-0 mt-96">
+      <motion.div
+        variants={left}
+        initial="hidden"
+        whileInView={'visible'}
+        className="block md:hidden absolute left-0 mt-96"
+      >
         <svg width="166" height="288" viewBox="0 0 166 288" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="22" cy="144" r="144" fill="url(#paint0_linear_1355_18141)" />
           <defs>
@@ -135,9 +140,14 @@ export const Text2 = (props) => {
             </linearGradient>
           </defs>
         </svg>
-      </div>
+      </motion.div>
 
-      <div className="block md:hidden absolute left-[calc(50%-100px)] mb-72 ">
+      <motion.div
+        variants={left}
+        initial="hidden"
+        whileInView={'visible'}
+        className="block md:hidden absolute left-[calc(50%-100px)] mb-72 z-20"
+      >
         <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d_1355_18216)">
             <circle r="5" transform="matrix(-1 0 0 1 25 25)" fill="#FFD217" />
@@ -168,13 +178,13 @@ export const Text2 = (props) => {
             </filter>
           </defs>
         </svg>
-      </div>
+      </motion.div>
 
       <motion.div
         variants={left}
         initial="hidden"
         whileInView={'visible'}
-        className="flex flex-col w-full md:w-[51%] justify-center items-center"
+        className="flex flex-col w-full md:w-[51%] justify-center items-center z-20"
       >
         <Emphasis
           ts=" flex justify-center md:justify-start"
@@ -196,7 +206,7 @@ export const Text2 = (props) => {
         className="flex flex-col items-end justify-center w-full md:w-[45%]"
       >
         {goals.map((el) => {
-          return <GoalCard index={el.index} desc={el.text} className=" items-center my-8" />
+          return <GoalCard index={el.index} desc={el.text} className="items-center my-8 z-40" />
         })}
       </motion.div>
     </div>

@@ -2,26 +2,8 @@ import Typography from 'components/typography'
 import { PADDINGX } from 'constants/layout'
 import { motion } from 'framer-motion'
 
-const data = {
-  imageLink: 'assets/houseBig.png',
-}
-
 export const House = (props) => {
-  const { subText, bigText, paragraph } = props
-  const down = {
-    hidden: {
-      opacity: 0,
-      y: -20,
-    },
-    visible: {
-      transition: {
-        delay: 0.3,
-        duration: 0.8,
-      },
-      opacity: 1,
-      y: 0,
-    },
-  }
+  const { subText, bigText, paragraph, bigHouse } = props
   const up = {
     hidden: {
       opacity: 0,
@@ -171,7 +153,7 @@ export const House = (props) => {
         whileInView={'visible'}
         className="md:absolute flex w-[350px] md:w-[800px] px-0 right-0 "
       >
-        <img src={data.imageLink} alt="" />
+        <img src={bigHouse} alt="" />
       </motion.div>
 
       <div className=" h-28 md:h-0"></div>
