@@ -7,13 +7,30 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Drawer, Button, SwipeableDrawer } from '@mui/material'
 import { SustainGoals } from './sustainGoals'
-
-const data = [
-  { link: '/whoarewe', name: 'Who are we' },
-  { link: '/whatarewedoing', name: 'What are we doing' },
-  { link: '/recomended', name: 'Recomended' },
-  { link: '/naadam', name: 'Naadam' },
-]
+const data = {
+  nav: [
+    { link: '/whoarewe', name: 'Who are we' },
+    { link: '/whatarewedoing', name: 'What are we doing' },
+    { link: '/recomended', name: 'Recomended' },
+    { link: '/naadam', name: 'Naadam' },
+  ],
+  icons: [
+    { link: 'https://www.facebook.com/shambala.mn/', icon: 'facebook' },
+    { link: 'https://www.twitter.com', icon: 'twitter' },
+    { link: 'https://www.google.com/gmail/', icon: 'mail' },
+    { link: 'https://www.instagram.com/shambala2056/', icon: 'instagram' },
+  ],
+  whatarewedoing: {
+    first: {
+      link: '/artech',
+      name: 'Artech',
+    },
+    second: {
+      link: '/ourplanet',
+      name: 'Our Planet',
+    },
+  },
+}
 
 export const Bighead = () => {
   const router = useRouter()
@@ -31,9 +48,10 @@ export const Bighead = () => {
     }
     setState({ ...state, [anchor]: open })
   }
+
   const list = (anchor) => (
     <div className="w-96 h-full bg-mainBg flex flex-col z-50">
-      {data.map((el) => {
+      {data.nav.map((el) => {
         const selected = router.pathname == el.link
         return (
           <Link href={el.link}>
@@ -65,7 +83,6 @@ export const Bighead = () => {
       })}
     </div>
   )
-
   return (
     <div
       style={{
@@ -104,78 +121,91 @@ export const Bighead = () => {
         </div>
         <div className="items-center justify-between h-full headerBpoint:flex hidden gap-14">
           <div className="h-full shrink-0 flex items-center">
-            {data.map((el) => {
+            {data.nav.map((el) => {
               const sele = router.pathname == el.link
               return (
-                <Link href={el.link}>
+                <div className="h-full">
+                  <Link href={el.link == '/whatarewedoing' ? router.pathname : el.link}>
+                    <div
+                      key={'deez' + el.name}
+                      id={el.name}
+                      className={`${
+                        router.pathname == el.link || router.pathname == "/artech" && el.link == "/whatarewedoing" || router.pathname == "/ourplanet" && el.link == "/whatarewedoing"
+                          ? 'border-primary-yellow bg-textColor-secondary-darkGray'
+                          : ' border-transparent'
+                      } group flex items-center h-full px-[35px] border-b-2 hover:cursor-pointer text-white ${
+                        el.link == '/whatarewedoing' ? ' flex-col justify-center' : ''
+                      }`}
+                    >
+                      <a>
+                        <Typography
+                          variant="mobile-menu"
+                          className={`${router.pathname == el.link ? '' : 'text-white/70 '}group-hover:text-white `}
+                        >
+                          {el.name}
+                        </Typography>
+                      </a>
+                    </div>
+                  </Link>
                   <div
-                    key={'deez' + el.name}
-                    id={el.name}
                     className={`${
-                      router.pathname == el.link
-                        ? 'border-primary-yellow bg-textColor-secondary-darkGray'
-                        : ' border-transparent'
-                    } group flex items-center h-full px-[35px] border-b-2 hover:cursor-pointer text-white`}
+                      el.link == '/whatarewedoing'
+                        ? ' w-[184px] flex flex-col justify-end  absolute top-0 hover:h-[210px] opacity-0 hover:opacity-100 h-[70px] hover:cursor-pointer z-50 '
+                        : 'hidden'
+                    }`}
                   >
-                    <a>
-                      <Typography
-                        variant="mobile-menu"
-                        className={`${router.pathname == el.link ? '' : 'text-white/70 '}group-hover:text-white `}
-                      >
-                        {el.name}
-                      </Typography>
-                    </a>
+                      <Link href={data.whatarewedoing.first.link} id="liiiink" >
+                        <a className={`h-[70px] w-full flex justify-center items-center bg-[#202121]`}>
+                        <Typography
+                          variant="mobile-menu"
+                          className={`${
+                            router.pathname == el.link ? '' : 'text-white/70 '
+                          }group-hover:text-white h-12 w-full flex justify-center items-center hover:bg-textColor-secondary-darkGray hover:text-white  ${router.pathname == data.whatarewedoing.first.link ? "bg-textColor-secondary-darkGray":""}  `}
+                        >
+                          {data.whatarewedoing.first.name}
+                        </Typography>
+                        </a>
+                      </Link>
+
+
+                      <Link href={data.whatarewedoing.second.link} id="liiiink" >
+                        <a className={`h-[70px] w-full flex justify-center items-center bg-[#202121]`}>
+                        <Typography
+                          variant="mobile-menu"
+                          className={`${
+                            router.pathname == el.link ? '' : 'text-white/70 '
+                          }group-hover:text-white h-12 w-full flex justify-center items-center hover:bg-textColor-secondary-darkGray hover:text-white  ${router.pathname == data.whatarewedoing.second.link ? "bg-textColor-secondary-darkGray":""}  `}
+                        >
+                          {data.whatarewedoing.second.name}
+                        </Typography>
+                        </a>
+                      </Link>
                   </div>
-                </Link>
+                </div>
               )
             })}
           </div>
           <div id="icons" className="flex gap-[30px]">
-            <Link href={'https://www.facebook.com/shambala.mn/'}>
-              <a className="hover:scale-125" target="_blank">
-                {handleIcon({
-                  icon: 'facebook',
-                  size: 16,
-                  className: 'text-menuIcon-gray hover:text-primary-yellow',
-                })}
-              </a>
-            </Link>
-
-            <Link href={'https://www.twitter.com'}>
-              <a className="hover:scale-125" target="_blank">
-                {handleIcon({
-                  icon: 'twitter',
-                  size: 16,
-                  className: 'text-menuIcon-gray hover:text-primary-yellow',
-                })}
-              </a>
-            </Link>
-            <Link href={'https://www.google.com/gmail/'}>
-              <a className="hover:scale-125" target="_blank">
-                {handleIcon({
-                  icon: 'mail',
-                  size: 16,
-                  className: 'text-menuIcon-gray hover:text-primary-yellow',
-                })}
-              </a>
-            </Link>
-            <Link href={'https://www.instagram.com/shambala2056/'}>
-              <a className="hover:scale-125" target="_blank">
-                {handleIcon({
-                  icon: 'instagram',
-                  size: 16,
-                  className: 'text-menuIcon-gray hover:text-primary-yellow',
-                })}
-              </a>
-            </Link>
+            {data.icons.map((el) => {
+              return (
+                <Link href={el.link}>
+                  <a className="hover:scale-125" target="_blank">
+                    {handleIcon({
+                      icon: el.icon,
+                      size: 16,
+                      className: 'text-menuIcon-gray hover:text-primary-yellow',
+                    })}
+                  </a>
+                </Link>
+              )
+            })}
           </div>
         </div>
       </div>
-      
-      <div className={`w-full h-fit px-10  ${ router.pathname == "/whatwedoing" ? "block" : "hidden" }`}>
-         <SustainGoals />
-       </div>
-     
+
+      <div className={`w-full h-fit px-10  ${router.pathname == '/whatwedoing' ? 'block' : 'hidden'}`}>
+        <SustainGoals />
+      </div>
     </div>
   )
 }
