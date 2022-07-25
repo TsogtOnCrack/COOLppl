@@ -8,6 +8,14 @@ import { useRouter } from 'next/router'
 import { Drawer, Button, SwipeableDrawer } from '@mui/material'
 import { SustainGoals } from './sustainGoals'
 const data = {
+  tablet : [
+    { link: '/whoarewe', name: 'Who are we' },
+    { link: '/artech', name: 'Artech'},
+    { link: '/ourplanet', name: 'Our Planet'},
+    { link: '/recomended', name: 'Recomended' },
+    { link: '/naadam', name: 'Naadam' },
+
+  ],
   nav: [
     { link: '/whoarewe', name: 'Who are we' },
     { link: '/whatarewedoing', name: 'What are we doing' },
@@ -51,7 +59,7 @@ export const Bighead = () => {
 
   const list = (anchor) => (
     <div className="w-96 h-full bg-mainBg flex flex-col z-50">
-      {data.nav.map((el) => {
+      {data.tablet.map((el) => {
         const selected = router.pathname == el.link
         return (
           <Link href={el.link}>

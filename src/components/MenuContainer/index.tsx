@@ -24,8 +24,13 @@ const itemIds = [
     id: 'whoarewe',
   },
   {
-    name: 'What we do',
-    path: '/whatarewedoing',
+    name: 'Artech',
+    path: '/artech',
+    id: 'whatarewedoing',
+  },
+  {
+    name: 'Our Planet',
+    path: '/ourplanet',
     id: 'whatarewedoing',
   },
   {
