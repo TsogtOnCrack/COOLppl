@@ -477,7 +477,7 @@ const IGMLAB = (props) => {
                 headerEl={el.headerEl}
                 title={el.title}
                 desc={el.desc}
-                className={el.className}
+                className={el.className + " py-8 "}
                 buttonEl={
                   <Button variant="underline">
                     <Typography variant="body-web">{el.buttonText}</Typography>
