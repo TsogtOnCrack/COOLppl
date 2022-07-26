@@ -8,13 +8,12 @@ import { useRouter } from 'next/router'
 import { Drawer, Button, SwipeableDrawer } from '@mui/material'
 import { SustainGoals } from './sustainGoals'
 const data = {
-  tablet : [
+  tablet: [
     { link: '/whoarewe', name: 'Who are we' },
-    { link: '/artech', name: 'Artech'},
-    { link: '/ourplanet', name: 'Our Planet'},
+    { link: '/artech', name: 'Artech' },
+    { link: '/ourplanet', name: 'Our Planet' },
     { link: '/recomended', name: 'Recomended' },
     { link: '/naadam', name: 'Naadam' },
-
   ],
   nav: [
     { link: '/whoarewe', name: 'Who are we' },
@@ -138,7 +137,9 @@ export const Bighead = () => {
                       key={'deez' + el.name}
                       id={el.name}
                       className={`${
-                        router.pathname == el.link || router.pathname == "/artech" && el.link == "/whatarewedoing" || router.pathname == "/ourplanet" && el.link == "/whatarewedoing"
+                        router.pathname == el.link ||
+                        (router.pathname == '/artech' && el.link == '/whatarewedoing') ||
+                        (router.pathname == '/ourplanet' && el.link == '/whatarewedoing')
                           ? 'border-primary-yellow bg-textColor-secondary-darkGray'
                           : ' border-transparent'
                       } group flex items-center h-full px-[35px] border-b-2 hover:cursor-pointer text-white ${
@@ -162,32 +163,35 @@ export const Bighead = () => {
                         : 'hidden'
                     }`}
                   >
-                      <Link href={data.whatarewedoing.first.link} id="liiiink" >
-                        <a className={`h-[70px] w-full flex justify-center items-center bg-[#202121]`}>
+                    <Link href={data.whatarewedoing.first.link} id="liiiink">
+                      <a className={`h-[70px] w-full flex justify-center items-center bg-[#202121]`}>
                         <Typography
                           variant="mobile-menu"
                           className={`${
                             router.pathname == el.link ? '' : 'text-white/70 '
-                          }group-hover:text-white h-12 w-full flex justify-center items-center hover:bg-textColor-secondary-darkGray hover:text-white  ${router.pathname == data.whatarewedoing.first.link ? "bg-textColor-secondary-darkGray":""}  `}
+                          }group-hover:text-white h-12 w-full flex justify-center items-center hover:bg-textColor-secondary-darkGray hover:text-white  ${
+                            router.pathname == data.whatarewedoing.first.link ? 'bg-textColor-secondary-darkGray' : ''
+                          }  `}
                         >
                           {data.whatarewedoing.first.name}
                         </Typography>
-                        </a>
-                      </Link>
+                      </a>
+                    </Link>
 
-
-                      <Link href={data.whatarewedoing.second.link} id="liiiink" >
-                        <a className={`h-[70px] w-full flex justify-center items-center bg-[#202121]`}>
+                    <Link href={data.whatarewedoing.second.link} id="liiiink">
+                      <a className={`h-[70px] w-full flex justify-center items-center bg-[#202121]`}>
                         <Typography
                           variant="mobile-menu"
                           className={`${
                             router.pathname == el.link ? '' : 'text-white/70 '
-                          }group-hover:text-white h-12 w-full flex justify-center items-center hover:bg-textColor-secondary-darkGray hover:text-white  ${router.pathname == data.whatarewedoing.second.link ? "bg-textColor-secondary-darkGray":""}  `}
+                          }group-hover:text-white h-12 w-full flex justify-center items-center hover:bg-textColor-secondary-darkGray hover:text-white  ${
+                            router.pathname == data.whatarewedoing.second.link ? 'bg-textColor-secondary-darkGray' : ''
+                          }  `}
                         >
                           {data.whatarewedoing.second.name}
                         </Typography>
-                        </a>
-                      </Link>
+                      </a>
+                    </Link>
                   </div>
                 </div>
               )
@@ -211,9 +215,10 @@ export const Bighead = () => {
         </div>
       </div>
 
-      <div className={`w-full h-fit px-10  ${router.pathname == '/whatwedoing' ? 'block' : 'hidden'}`}>
+      <div className={`w-full h-fit px-10  mt-3 ${router.pathname == '/ourplanet' ? 'block' : 'hidden'}`}>
         <SustainGoals />
       </div>
+      <div className={`absolute z-30 flex flex-col backdrop-blur-[5px] items-start h-[70px] w-full left-0 ${router.pathname == '/ourplanet' ? 'block' : 'hidden'}`}></div>
     </div>
   )
 }
