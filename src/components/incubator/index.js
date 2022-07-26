@@ -53,7 +53,10 @@ const Incubator = (props) => {
       <div className=" h-28 md:h-52"></div>
 
       <motion.div variants={up} initial="hidden" whileInView={'visible'}>
-        <Last vari={matches ? 'title-small' : 'thin'} className={` px-0 md:${PADDINGX} !font-thin text-white/60 z-20 `}>
+        <Last
+          vari={matches ? 'title-small' : 'thin'}
+          className={` px-0 md:${PADDINGX} px-1 !font-thin text-white/60 z-20 `}
+        >
           {incubator.BIGTEXT}
         </Last>
       </motion.div>

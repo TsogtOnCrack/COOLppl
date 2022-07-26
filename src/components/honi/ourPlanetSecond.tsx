@@ -287,15 +287,15 @@ const OurPlanetSecond = (props) => {
           variants={goalAni}
           initial="hidden"
           whileInView={'visible'}
-          className="grid grid-cols-3 gap-9 sm:gap-40 z-40"
+          className={` grid grid-cols-3 gap-9 sm:gap-40 z-40 ${PADDINGX}`}
         >
-          <div className={matches ? 'w-[81px]' : 'w-[200px]'}>
+          <div className={matches ? 'w-[81px]' : 'max-w-[200px]'}>
             <img src={ourPlanetSecond.igmIncubator} alt="" />
           </div>
-          <div className={matches ? 'w-[81px]' : 'w-[200px]'}>
+          <div className={matches ? 'w-[81px]' : 'max-w-[200px]'}>
             <img src={ourPlanetSecond.igmLabs} alt="" />
           </div>
-          <div className={matches ? 'w-[81px]' : 'w-[200px]'}>
+          <div className={matches ? 'w-[81px]' : 'max-w-[200px]'}>
             <img src={ourPlanetSecond.igmGarden} alt="" />
           </div>
         </motion.div>
