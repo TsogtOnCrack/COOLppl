@@ -254,7 +254,7 @@ const OurPlanetFirst = (props) => {
 
         <div id="spacer" className={matches ? 'h-20' : 'h-72'}></div>
 
-        <motion.div variants={title} initial="hidden" whileInView={'visible'} className={` w-full md:w-[80%] z-40 ${PADDINGX} `}>
+        <motion.div variants={title} initial="hidden" whileInView={'visible'} className={` w-full md:w-[80%] z-40 md:px-10`}>
           <BigTitle
             titleTop={ourPlanetFirst.bigTitle.titleTop}
             titleBtm={ourPlanetFirst.bigTitle.titleBtm}

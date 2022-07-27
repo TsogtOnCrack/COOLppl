@@ -40,7 +40,7 @@ const WhatWeDoing = () => {
       <div id="spacer" className={matches ? 'h-20' : 'h-80'}></div>
       <IGMLAB igmLab={data.igmLab} />
       <div id="spacer" className={matches ? 'h-20' : ' h-[280px]'}></div>
-      <motion.div variants={wpic} initial="hidden" whileInView={'visible'}>
+      <motion.div variants={wpic} initial="hidden" whileInView={'visible'} className="z-40">
         <Wpic dir={data.dir} />
       </motion.div>
       <div id="spacer" className={matches ? 'h-20' : 'h-[210px]'}></div>
